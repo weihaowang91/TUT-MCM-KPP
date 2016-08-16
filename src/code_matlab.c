@@ -343,7 +343,7 @@ char dsbuf[55];
             bprintf( "'%12s'", cval[i] ); maxCols = 3; break;
           case DOUBLESTRING:
 	    strncpy( dsbuf, cval[i], 54 ); dsbuf[54]='\0';
-	    bprintf( "'%48s'", dsbuf ); maxCols=1; break;
+	    bprintf( "'%80s'", dsbuf ); maxCols=1; break; /*increased the minimum size of string from 48 to 80 to avoid vertcat-problem in Matlab, OK*/
           }
           if( i < n-1 ) {
             bprintf( ";" );

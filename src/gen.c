@@ -2728,6 +2728,8 @@ int numass;
       numass++;
     }
   } 
+
+  MATLAB_Inline("if ~exist ('Mass'), Mass=0; end;"); /* Fixing problem with empty GetMass(), OK */
   
   FunctionEnd( GETMASS );
   FreeVariable( GETMASS );
