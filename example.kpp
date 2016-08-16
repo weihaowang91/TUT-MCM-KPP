@@ -1,0 +1,45 @@
+//Include the MCM file containing chemical species and equations
+#INCLUDE ./mcm_subset.kpp 
+
+#DOUBLE ON 
+
+//Choose language of the generated code.
+#LANGUAGE MATLAB
+//FORTRAN90, FORTRAN77, C
+
+//Define initial concentrations. Unlisted values are assumed to be zero.
+//MCM uses molecules/cm^3. By using CFACTOR = 2.46E10 units can be given in ppb
+#INITVALUES
+CFACTOR = 2.46E10 ;
+NO2 = 0.026 ;
+NO = 0.026 ;
+O3 = 46 ;
+CO = 144 ;
+H2 = 500 ;
+O1D = 7.7E-13 ;
+OH =  10E-4 ;
+H2O2 = 0.05 ;
+HNO3 = 6 ;
+HCHO = 0.42 ;
+
+
+//Choosing the integrator
+#INTEGRATOR rosenbrock
+//#INTEGRATOR kpp_lsode
+// #INTEGRATOR ros2_manual
+// #INTEGRATOR radau5
+
+//Driver KPP will use
+#DRIVER general
+
+#DUMMYINDEX ON
+#STOICMAT OFF
+#HESSIAN OFF
+#MEX OFF
+#EQNTAGS ON
+#LOOKATALL;
+
+//Choose species to monitor, e.g.
+#MONITOR NO; NO2; NO3; N2O5; HO2NO2; HONO;
+
+
