@@ -20,19 +20,19 @@ This is a modified version of the [Kinetic PreProcessor][1] used at the Aerosol 
 
     Restart shell to make sure changes are in effect.
 
-3. Make sure you have sed installed on your computer (type `which sed`). If not install sed using command:
+3. Make sure you have sed installed on your computer (type `which sed`). If not, install sed using command:
 
    `sudo apt-get install sed`
 
-4. In the same way, make sure you have yacc installed. If not install it using command:
+4. In the same way, make sure you have yacc installed. If not, install it using command:
 
    `sudo apt-get install bison`
 
-5. Type "flex --version" to make sure you have flex installed on your computer. If not install it using the command:
+5. Type "flex --version" to make sure you have flex installed on your computer. If not, install it using the command:
 
    `sudo apt-get install flex`
 
-   Find out the exact path name of the flex library. The library is called either libfl.a or libfl.sh. You will need this pathname later.
+   Find out the exact path name of the flex library. The library is called either libfl.a or libfl.sh. You will need this path name later.
 
 6. Go to the KPP directory:
 
