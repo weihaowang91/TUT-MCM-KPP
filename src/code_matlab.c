@@ -119,7 +119,7 @@ int first;
 int crtident;
 
 /* Max no of continuation lines in F95 standard is 39 */
-int number_of_lines = 1, MAX_NO_OF_LINES = 36;
+int number_of_lines = 1, MAX_NO_OF_LINES = 150;
 
 /*  Operator Mapping: 0xaa = '*' | 0xab = '+' | 0xac = ',' 
                       0xad = '-' | 0xae ='.' | 0xaf = '/' */		      
@@ -129,7 +129,7 @@ char op_plus='+', op_minus='-'; /* op_mult='*', op_dot='.', op_div='/';	*/
   crtident = 3 + ident * 2;
   bprintf("%*s%s = ", crtident, "", ls);
   start = strlen( ls ) + 2;
-  linelg = 70 - crtident - start - 1;
+  linelg = 100 - crtident - start - 1;
 
   first = 1;
   while( strlen(rs) > linelg ) {
