@@ -28,7 +28,7 @@ This is a modified version of the [Kinetic PreProcessor][1] used at the Aerosol 
 
    `sudo apt-get install bison`
 
-5. Type "flex --version" to make sure you have flex installed on your computer. If not, install it using the command:
+5. Type "flex --version" to make sure you have flex installed on your computer. If not, install it using command:
 
    `sudo apt-get install flex`
 
