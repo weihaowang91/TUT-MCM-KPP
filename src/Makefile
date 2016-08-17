@@ -58,7 +58,7 @@ OBJS  = \
 kpp:    $(OBJS)
 	@echo "  "$(CC) $(CC_FLAGS) $(CFLAGS) $(OBJS) -L$(FLEX_LIB_DIR) -lfl -o kpp
 	@$(CC) $(CC_FLAGS) $(CFLAGS) $(OBJS) -L$(FLEX_LIB_DIR) -lfl -o kpp
-	@mv kpp ../bin
+	@mv kpp ../kpp
 
 clean:  
 	@rm -f *~ *.o cflags 
