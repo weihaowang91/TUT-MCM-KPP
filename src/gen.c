@@ -36,7 +36,7 @@
 #include "code.h"
 #include "scan.h"
  
-#define MAX_MONITOR 8
+#define MAX_MONITOR 15
 enum strutypes { PLAIN, LU };
 
 int **structB;
