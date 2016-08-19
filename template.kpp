@@ -1,0 +1,65 @@
+// This is a template file for running MCM model with KPP and Matlab
+
+// Choose language of the generated code
+#LANGUAGE MATLAB
+
+// Water and third body concentrations. If M is not known it should be 2.55E+19
+#INLINE MATLAB_GLOBAL 
+global M H2O;  M = 2.55E+19; H2O = 3E17;
+#ENDINLINE
+
+// Defining the start and end times of the simulation in seconds
+#INLINE MATLAB_INIT
+global TSTART TEND DT TEMP
+TSTART = 0;
+TEND = TSTART + (3*24*3600);
+  DT = 900;
+TEMP = 298;
+#ENDINLINE
+
+// Insert the date (e.g. '21-jan-2016'), longitude lambda and latitude phi
+#INLINE MATLAB_RCONST
+global TIME J
+J = Photolysis('19-aug-2016', TIME, 23.8, 61.5);
+#ENDINLINE
+
+// Include the MCM file containing chemical species and equations
+#INCLUDE ./mcm_subset.kpp 
+
+#DOUBLE ON 
+
+// Define initial concentrations. Unlisted values are assumed to be zero.
+// MCM uses molecules/cm^3. By using CFACTOR = 2.46E10 units can be given in ppb
+#INITVALUES
+CFACTOR = 2.46E10 ;
+NO2 = 0.026 ;
+NO = 0.026 ;
+O3 = 46 ;
+CO = 144 ;
+H2 = 500 ;
+O1D = 7.7E-13 ;
+OH =  10E-4 ;
+H2O2 = 0.05 ;
+HNO3 = 6 ;
+HCHO = 0.42 ;
+
+
+// Choosing the integrator
+#INTEGRATOR rosenbrock
+// #INTEGRATOR kpp_lsode
+// #INTEGRATOR ros2_manual
+// #INTEGRATOR radau5
+
+// Driver KPP will use
+#DRIVER general
+
+#DUMMYINDEX ON
+#STOICMAT OFF
+#HESSIAN OFF
+#MEX OFF
+#EQNTAGS ON
+#LOOKATALL;
+
+// Choose species to monitor, e.g.
+#MONITOR NO; NO2; NO3; N2O5; HO2NO2; HONO;
+
