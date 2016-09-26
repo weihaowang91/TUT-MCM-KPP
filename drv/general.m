@@ -26,7 +26,8 @@
 
   TIME = TSTART;
   
-  Tspan = linspace( TSTART, TEND, 100 );
+% Changed the spacing from 100 to depending on the defined time interval, OK.
+  Tspan = linspace( TSTART, TEND, (TEND-TSTART)/DT );
 
   [T, Y] = ode15s(@KPP_ROOT_Fun_Chem, Tspan, VAR, Options);
 

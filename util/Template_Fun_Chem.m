@@ -4,7 +4,7 @@
 
 function P = KPP_ROOT_Fun_Chem(T, Y) 
      
-  global TIME FIX RCONST  
+  global TIME FIX RCONST C NVAR NFIX NSPEC 
  
   Told = TIME;
   TIME = T;
@@ -16,6 +16,10 @@ function P = KPP_ROOT_Fun_Chem(T, Y)
   
 %  To call the mex routine instead, comment the line above and uncomment the following line:
 %  P = KPP_ROOT_mex_Fun( Y, FIX, RCONST );
+
+%  Lines to update the peroxy radical sum needed by the Master Chemical Mechanism during the integration, OK.
+  C(1:KPP_NVAR) = Y(1:KPP_NVAR); 
+  C((NVAR+1):NSPEC) = FIX(1:NFIX);
 
   TIME = Told;
 
