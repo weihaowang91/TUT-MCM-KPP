@@ -146,7 +146,7 @@ KMT04   =(k40.*k4i).*f4./(k40+k4i);
 
 % KMT05  : oh       + co(+o2) = ho2     + co2
 % iupac 2006
-KMT05  =(1 +(m./4.2E19));
+KMT05  =1.44E-13*(1 +(m./4.2E19));
 
 % KMT06  : ho2      + ho2     = h2o2    + o2
 % water enhancement factor
